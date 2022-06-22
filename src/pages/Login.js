@@ -26,6 +26,7 @@ class Login extends React.Component {
 
   render() {
     const { email, password } = this.state;
+    const { setEmail } = this.props;
     const isFormValid = email
     && isEmailValid(email) && password && isPasswordValid(password);
     return (
@@ -54,7 +55,11 @@ class Login extends React.Component {
               onChange={ this.onInputChange }
             />
           </label>
-          <button type="submit" disabled={ !isFormValid }>
+          <button
+            type="submit"
+            disabled={ !isFormValid }
+            onClick={ () => setEmail(email) }
+          >
             Entrar
           </button>
         </form>
