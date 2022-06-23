@@ -17,7 +17,8 @@ const walletReducer = (state = INITIAL_STATE, action) => {
   case RECEIVE_CURRENCIES:
     return {
       ...state,
-      currencies: action.currencies,
+      currencies: (Object.keys(action.currencies))
+        .filter((value) => value !== 'USDT'),
     };
   default:
     return state;
