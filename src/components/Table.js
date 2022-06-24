@@ -1,10 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { deleteExpense } from '../actions';
 
 class Table extends React.Component {
+  // deleteExpense = (id) => {
+  //   const { expenses } = this.props;
+  //   this.setState({
+  //     expenses: [...expenses, expenses.filter((expense) => expense.id !== id)],
+  //   });
+  // }
+
   render() {
-    const { expenses } = this.props;
+    const { expenses, dispatch } = this.props;
     return (
       <table>
         <thead>
@@ -36,8 +44,15 @@ class Table extends React.Component {
               <td>{ expense.value * expense.exchangeRates[expense.currency].ask}</td>
               <td>Real</td>
               <td>
-                <button type="button">Editar</button>
-                <button type="button">Excluir</button>
+                <button type="button" data-testid="edit-btn">Editar</button>
+                <button
+                  type="button"
+                  data-testid="delete-btn"
+                  // onClick={ () => this.deleteExpense(expense.id) } // checar se está certo
+                  onClick={ () => dispatch(deleteExpense(expense.id)) }
+                >
+                  Excluir
+                </button>
               </td>
             </tr>
           ))}
@@ -53,6 +68,7 @@ const mapStateToProps = (state) => ({
 
 Table.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(Table);

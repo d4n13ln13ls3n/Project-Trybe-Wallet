@@ -2,6 +2,7 @@ export const SET_EMAIL = 'SET_EMAIL';
 export const REQUEST_CURRENCIES = 'REQUEST_CURRENCIES';
 export const RECEIVE_CURRENCIES = 'RECEIVE_CURRENCIES';
 export const NEW_EXPENSE = 'NEW_EXPENSE';
+export const DELETE_EXPENSE = 'DELETE_EXPENSE';
 
 export function createSetEmail(email) {
   return { type: SET_EMAIL, payload: email };
@@ -15,6 +16,15 @@ export function createNewExpense(expense) {
     dispatch({ type: NEW_EXPENSE, payload: newExpense });
   };
 }
+
+export const deleteExpense = (id) => ({
+  type: DELETE_EXPENSE,
+  id,
+});
+
+export const isBeingEdit = (id) =>
+
+export const finishedEditing = (payload)
 
 const requestCurrencies = () => ({
   type: REQUEST_CURRENCIES,
