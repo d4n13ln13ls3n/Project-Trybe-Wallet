@@ -20,7 +20,7 @@ class Login extends React.Component {
     const { email } = this.state;
     const { history, setEmail } = this.props;
     event.preventDefault();
-    setEmail(email);
+    setEmail(email); // setEmail is a key in sDTP, which dispatches the function createSetEmail, which is an action inside /actions/index.js
     history.push('/carteira');
   }
 

@@ -5,3 +5,5 @@ export const isEmailValid = (value) => (
 );
 
 export const isPasswordValid = (value) => value.length >= minLength;
+
+export const uuid = () => `id_${(new Date()).getTime()}`;
