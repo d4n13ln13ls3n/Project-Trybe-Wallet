@@ -37,26 +37,3 @@ const walletReducer = (state = INITIAL_STATE, action) => {
 };
 
 export default walletReducer;
-
-// case NEW_EXPENSE:
-// return {
-//   ...state,
-//   expenses: [
-//     ...state.wallet.expenses,
-//     {
-//       ...action.payload,
-//       id: state.wallet.expenses.length,
-//     },
-//   ],
-// total: total + (value * state.wallet.currencies[currencies].ask),
-// };
-
-// this.setState((prevState) => ({
-//   cards: {...prevState.cards, requested: [...prevState.cards.requested, card] },
-//   card: {
-//     what: '',
-//     how: '',
-//     who: '',
-//     when: '',
-//   },
-// }));
