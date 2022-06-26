@@ -12,7 +12,7 @@ class Table extends React.Component {
   // }
 
   render() {
-    const { expenses, dispatch } = this.props;
+    const { expenses, dispatch, editTask } = this.props;
     return (
       <table>
         <thead>
@@ -44,11 +44,16 @@ class Table extends React.Component {
               <td>{ expense.value * expense.exchangeRates[expense.currency].ask}</td>
               <td>Real</td>
               <td>
-                <button type="button" data-testid="edit-btn">Editar</button>
+                <button
+                  type="button"
+                  data-testid="edit-btn"
+                  onClick={ () => editTask(expense) }
+                >
+                  Editar
+                </button>
                 <button
                   type="button"
                   data-testid="delete-btn"
-                  // onClick={ () => this.deleteExpense(expense.id) } // checar se está certo
                   onClick={ () => dispatch(deleteExpense(expense.id)) }
                 >
                   Excluir
@@ -69,6 +74,7 @@ const mapStateToProps = (state) => ({
 Table.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.shape()).isRequired,
   dispatch: PropTypes.func.isRequired,
+  editTask: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(Table);

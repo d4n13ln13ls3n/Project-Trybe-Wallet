@@ -1,7 +1,9 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
 
-import { DELETE_EXPENSE, NEW_EXPENSE, RECEIVE_CURRENCIES } from '../actions';
-// import { uuid } from '../utils';
+import {
+  BEING_EDITED, DELETE_EXPENSE, FINISHED_EDITING, NEW_EXPENSE, RECEIVE_CURRENCIES,
+}
+from '../actions';
 
 const INITIAL_STATE = {
   currencies: [], // array de string
@@ -27,6 +29,7 @@ const walletReducer = (state = INITIAL_STATE, action) => {
       ...state,
       expenses: [...state.expenses, {
         ...action.payload,
+        id: state.expenses.length,
       },
       ],
     };
@@ -34,6 +37,25 @@ const walletReducer = (state = INITIAL_STATE, action) => {
     return {
       ...state,
       expenses: state.expenses.filter((expense) => expense.id !== action.id),
+    };
+  case BEING_EDITED:
+    return {
+      ...state,
+      editor: true,
+      idToEdit: action.id,
+    };
+  case FINISHED_EDITING:
+    return {
+      ...state,
+      expenses: [...state.expenses].reduce((acc, cur) => {
+        if (cur.id === action.expense.id) { // action.expense.id é o conteudo do objeto sendo editado
+          acc.push(action.expense);
+        } else {
+          acc.push(cur);
+        }
+        return acc;
+      }, []),
+      editor: false,
     };
   default:
     return state;
