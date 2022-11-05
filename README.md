@@ -1,4 +1,7 @@
-## - Project Trybe Wallet
+![Captura de tela de 2022-11-05 18-16-04](https://user-images.githubusercontent.com/92753791/200141664-d181283e-9beb-493e-b415-0167d4108717.png)
+
+
+## Project Trybe Wallet
   Projeto desenvolvido no módulo de Front-end da [Trybe](https://www.betrybe.com/).
   English below
   
