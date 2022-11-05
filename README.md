@@ -10,6 +10,8 @@
   - Visualizar o total de gastos convertidos para uma moeda de escolha;
 </details>
 
+PS - o email e senha para acesso são: _tryber@teste.com_ e _123456_
+
 <details>
   <summary><strong>:memo: Habilidades</strong></summary><br />
 
