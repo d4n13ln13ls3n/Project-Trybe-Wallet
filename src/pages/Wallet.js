@@ -17,7 +17,6 @@ class Wallet extends React.Component {
     method: 'Dinheiro',
     tag: ALIMENTACAO,
     description: '',
-    // id: 0,
   }
 
   componentDidMount() {
@@ -33,12 +32,10 @@ class Wallet extends React.Component {
 
   onSaveExpense = async (event) => {
     const { dispatch } = this.props;
-    // const { id } = this.state;
     event.preventDefault();
     await dispatch(createNewExpense(this.state)); // setEmail is a key in sDTP, which dispatches the function createSetEmail, which is an action inside /actions/index.js
     this.setState({
       value: 0,
-      // id: id + 1,
     });
   }
 
